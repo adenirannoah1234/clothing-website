@@ -1,17 +1,20 @@
-import { useState } from 'react';
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css';
-import Home from './pages/home/Home';
+import { Routes, Route } from 'react-router-dom';
+import Navigation from './routes/navigation/navigation.component';
+import Home from './routes/homecomponent/HomeComponent';
 
-function App() {
-  const [count, setCount] = useState(0);
+const Shop = () => {
+  return <h1>I am a shop page</h1>;
+};
 
+const App = () => {
   return (
-    <>
-      <Home />
-    </>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path="shop" element={<Shop />} />
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
